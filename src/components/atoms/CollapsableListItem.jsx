@@ -3,8 +3,16 @@ import {ExpandLess, ExpandMore} from '@mui/icons-material'
 import {Collapse, ListItemButton, ListItemText} from '@mui/material'
 import toTitleCase from '../../utils/toTitleCase'
 
-const AtomCollapsableListItem = ({title, children, isAllowed, sx = {}}) => {
+const AtomCollapsableListItem = ({
+    children,
+    childs,
+    isAllowed,
+    sx = {},
+    title,
+}) => {
     const [open, setOpen] = React.useState(false)
+
+    const isChildAvailable = childs.filter((item) => item.isShowed)?.length > 0
 
     return (
         <>
@@ -14,7 +22,7 @@ const AtomCollapsableListItem = ({title, children, isAllowed, sx = {}}) => {
                 onClick={() => setOpen((prev) => !prev)}
             >
                 <ListItemText primary={toTitleCase(title)} />
-                {open ? <ExpandLess /> : <ExpandMore />}
+                {isChildAvailable && (open ? <ExpandLess /> : <ExpandMore />)}
             </ListItemButton>
 
             <Collapse in={open} timeout="auto" unmountOnExit>
