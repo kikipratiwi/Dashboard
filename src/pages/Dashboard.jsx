@@ -22,7 +22,7 @@ import {useSelector} from 'react-redux'
 import {DrawerHeader} from '../utils/globalStyle'
 import MainView from './MainView'
 
-const drawerWidth = 240
+const drawerWidth = 290
 
 const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -82,28 +82,43 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer() {
     const theme = useTheme()
-    const menus = useSelector((state) => state.menu)
+    const menus = useSelector((state) => state.menu.value)
     const [open, setOpen] = React.useState(true)
 
     const toggleDrawer = () => {
         setOpen((prev) => !prev)
     }
 
-    const renderSideBar = (menus) => {
-        return menus.map(({id, childs}) => {
-            if (childs) {
-                return (
-                    <AtomCollapsableListItem key={`collapse-${id}`} title={id}>
-                        {renderSideBar(childs)}
-                    </AtomCollapsableListItem>
-                )
+    const renderSideBar = (menus, sx = {}) => {
+        return menus.map(({id, isShowed, isAllowed, childs}) => {
+            if (isShowed) {
+                if (childs) {
+                    return (
+                        <AtomCollapsableListItem
+                            childs={childs}
+                            isAllowed={isAllowed}
+                            key={`collapse-${id}`}
+                            sx={{pl: sx.pl + 2}}
+                            title={id}
+                        >
+                            {renderSideBar(childs, {pl: sx.pl + 3})}
+                        </AtomCollapsableListItem>
+                    )
+                }
             }
 
-            return <AtomListItem key={`item-${id}`} title={id} />
+            if (isShowed)
+                return (
+                    <AtomListItem
+                        childs={childs}
+                        isAllowed={isAllowed}
+                        key={`item-${id}`}
+                        sx={{pl: sx.pl + 2}}
+                        title={id}
+                    />
+                )
         })
     }
-
-    console.log(menus)
 
     return (
         <Box sx={{display: 'flex'}}>
@@ -142,7 +157,7 @@ export default function MiniDrawer() {
 
                 <Divider />
 
-                <List>{renderSideBar(menus)}</List>
+                <List>{renderSideBar(menus, {pl: 1})}</List>
             </Drawer>
 
             <MainView />
