@@ -61,7 +61,7 @@ const MoleculeToggleListItem = ({
             <Stack spacing={2}>
                 <Stack
                     alignItems="center"
-                    direction="row"
+                    direction={{xs: 'column', md: 'row'}}
                     justifyContent="space-between"
                     spacing="2"
                 >
@@ -72,7 +72,7 @@ const MoleculeToggleListItem = ({
                         {toTitleCase(id)}
                     </Typography>
 
-                    <Box>
+                    <Stack direction={{xs: 'column', md: 'row'}}>
                         <FormControlLabel
                             control={
                                 <Switch
@@ -94,7 +94,7 @@ const MoleculeToggleListItem = ({
                             }
                             label="Active"
                         />
-                    </Box>
+                    </Stack>
                 </Stack>
 
                 {childs && (
