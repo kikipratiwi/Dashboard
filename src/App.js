@@ -1,7 +1,12 @@
-import Dashboard from './pages/Dashboard'
+import LayoutDashboard from './components/layouts/Dashboard'
+import MainView from './pages/MainView'
 
 function App() {
-    return <Dashboard />
+    return (
+        <LayoutDashboard>
+            <MainView />
+        </LayoutDashboard>
+    )
 }
 
 export default App

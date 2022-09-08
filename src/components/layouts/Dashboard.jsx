@@ -16,11 +16,10 @@ import {
     Toolbar,
     Typography,
 } from '@mui/material'
-import AtomCollapsableListItem from '../components/atoms/CollapsableListItem'
-import AtomListItem from '../components/atoms/ListItem'
+import AtomCollapsableListItem from '../atoms/CollapsableListItem'
+import AtomListItem from '../atoms/ListItem'
 import {useSelector} from 'react-redux'
-import {DrawerHeader} from '../utils/globalStyle'
-import MainView from './MainView'
+import {DrawerHeader} from '../../utils/globalStyle'
 
 const drawerWidth = 290
 
@@ -80,7 +79,7 @@ const Drawer = styled(MuiDrawer, {
     }),
 }))
 
-export default function MiniDrawer() {
+const LayoutDashboard = ({children}) => {
     const theme = useTheme()
     const menus = useSelector((state) => state.menu.value)
     const [open, setOpen] = React.useState(true)
@@ -160,7 +159,9 @@ export default function MiniDrawer() {
                 <List>{renderSideBar(menus, {pl: 1})}</List>
             </Drawer>
 
-            <MainView />
+            {children}
         </Box>
     )
 }
+
+export default LayoutDashboard
