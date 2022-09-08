@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Open [Simple Dashboard Page Live](https://golden-jelly-c65f66.netlify.app/) to view it live.
 
 ## Project Dependencies
--- **React Redux** as State Management Library
--- **Material UI** as React UI Library
+- **React Redux** as State Management Library
+- **Material UI** as React UI Library
 
 ## Running Project
 
