@@ -1,8 +1,15 @@
-# Getting Started with Create React App
+# Simple Dashboard Page
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Live Demo
+Open [Simple Dashboard Page Live](https://golden-jelly-c65f66.netlify.app/) to view it live.
+
+## Project Dependencies
+-- **React Redux** as State Management Library
+-- **Material UI** as React UI Library
+
+## Running Project
 
 In the project directory, you can run:
 
@@ -13,11 +20,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
