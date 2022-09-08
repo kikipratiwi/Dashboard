@@ -84,9 +84,7 @@ const LayoutDashboard = ({children}) => {
                         </AtomCollapsableListItem>
                     )
                 }
-            }
 
-            if (isShowed)
                 return (
                     <AtomListItem
                         childs={childs}
@@ -96,6 +94,9 @@ const LayoutDashboard = ({children}) => {
                         title={id}
                     />
                 )
+            }
+
+            return <></>
         })
     }
 
